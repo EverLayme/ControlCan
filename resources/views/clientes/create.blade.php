@@ -1,9 +1,9 @@
 @auth
-@extends('layouts.app');
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
-    <div class="card padding">
+    <div class="card padding bg-success">
         <header>
             <h4>Adicionar Nuevo Cliente</h4>
         </header>

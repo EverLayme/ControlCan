@@ -4,18 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use App\Http\Resources\ClientsCollection;
 
 class ClienteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //Muestra la coleccion de recursos
-        $clientes = Cliente::paginate();
+        $clientes = Cliente::paginate(10);
+        if ($request->wantsJson()) {
+            return $clientes->toJson();
+        }
         return view('clientes.index', ['clientes' => $clientes]);
     }
 

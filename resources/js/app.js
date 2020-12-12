@@ -5,10 +5,8 @@
  */
 
 require('./bootstrap');
-import Vuetify from 'vuetify'
 
 window.Vue = require('vue');
-Vue.use(Vuetify);
 
 /**
  * The following block of code may be used to automatically register your
@@ -21,7 +19,9 @@ Vue.use(Vuetify);
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('mynavbar-component', require('./components/menu/MynavbarComponent.vue').default);
+Vue.component('clients-component', require('./components/clients/ClientsComponent.vue').default);
+Vue.component('client-card-component', require('./components/clients/ClientCardComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,6 +30,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  */
 
 const app = new Vue({
-    el: '#app',
-    vuetify: new Vuetify(),
+    el: '#app'
 });
