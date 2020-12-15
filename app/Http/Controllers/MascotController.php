@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
+use App\Models\Mascot;
 use Illuminate\Http\Request;
-use App\Http\Resources\ClientsCollection;
 
-class ClienteController extends Controller
+class MascotController extends Controller
 {
     public function __construct()
     {
@@ -19,12 +18,11 @@ class ClienteController extends Controller
      */
     public function index(Request $request)
     {
-        //Muestra la coleccion de recursos
-        $clientes = Cliente::paginate(10);
+        $mascots = Mascot::paginate(10);
         if ($request->wantsJson()) {
-            return $clientes->toJson();
+            return $mascots->toJson();
         }
-        return view('clientes.index', ['clientes' => $clientes]);
+        return view('mascots.index', ['mascots' => $mascots]);
     }
 
     /**
@@ -34,8 +32,8 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        $client = new Cliente;
-        return view('clientes.create', ["client" => $client]);
+        $mascot = new Mascot;
+        return view('mascots.create', ["mascot" => $mascot]);
     }
 
     /**
@@ -48,13 +46,12 @@ class ClienteController extends Controller
     {
         $options = [
             'name' => $request->name,
-            'direction' => $request->direction,
-            'fono' => $request->fono
+            'raza' => $request->raza
         ];
-        if (Cliente::create($options)) {
-            return redirect('mascots/create');
+        if (Mascot::create($options)) {
+            return redirect('/');
         } else {
-            return view('clientes.create');
+            return view('mascots.create');
         }
     }
 
@@ -64,22 +61,22 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($idmascot)
     {
-        $client = Cliente::find($id);
-        return view('clientes.show', ['client' => $client]);
+        $mascot = Mascot::find($idmascot);
+        return view('mascots.show', ['mascots' => $mascot]);
     }
 
     /**
-     * Sho[]w the form for editing the specified resource.
+     * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($idmascot)
     {
-        $client = Cliente::find($id);
-        return view("clientes.edit", ["client" => $client]);
+        $mascot = Mascot::find($idmascot);
+        return view("mascots.edit", ["mascots" => $mascot]);
     }
 
     /**
@@ -89,18 +86,17 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $idmascot)
     {
-        $client = Cliente::find($id);
+        $mascot = Mascot::find($idmascot);
 
-        $client->name = $request->name;
-        $client->direction = $request->direction;
-        $client->fono = $request->fono;
+        $mascot->name = $request->name;
+        $mascot->raza = $request->raza;
 
-        if ($client->save()) {
+        if ($mascot->save()) {
             return redirect('/');
         } else {
-            return view("clientes.edit", ["client" => $client]);
+            return view("mascots.edit", ["mascot" => $mascot]);
         }
     }
 
@@ -112,7 +108,6 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        Cliente::destroy($id);
-        return redirect('/clientes');
+        //
     }
 }

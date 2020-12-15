@@ -21,6 +21,9 @@ Route::get('/', function () {
 Auth::routes();
 
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\MascotController;
+
+Route::resource('mascots', MascotController::class);
 
 Route::resource('clientes', ClienteController::class);
 

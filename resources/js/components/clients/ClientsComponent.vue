@@ -1,15 +1,17 @@
 <template>
 <section>
-<div class="row">
-<client-card-component v-bind:client="client" v-for="client in clients">
+<material-transition-group tag="div" class="row">
+<client-card-component :key="client.id" :data-index="index" v-bind:client="client" v-for="(client,index) in clients">
 </client-card-component>
-</div>
+</material-transition-group>
 </section>
 
 </template>
 
 <script>
+import MaterialCollectionComponent from '../animations/MaterialCollectionComponent.vue';
 export default {
+  components: { MaterialCollectionComponent },
 data(){
     return{
         name: 'Clients Component v2',
@@ -29,7 +31,4 @@ data(){
       }
   }
 }
-</script>>
-<style scoped>
-
-</style>
+</script>
