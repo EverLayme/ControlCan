@@ -38312,13 +38312,13 @@ var render = function() {
   return _c("div", { staticClass: "col-xs-12 col-sm-10 col-md-4" }, [
     _c("div", { staticClass: "card" }, [
       _c("header", { staticClass: "bg-success card padding" }, [
-        _vm._v("Cliente: " + _vm._s(_vm.client.id) + "\n")
+        _vm._v("Cliente:" + _vm._s(_vm.client.id))
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "card-body padding" }, [
-        _c("h2", { staticClass: "card-subtitle" }, [_vm._v("Nombre Cliente:")]),
+        _c("h3", { staticClass: "card-subtitle" }, [_vm._v("Nombre Cliente:")]),
         _vm._v(" "),
-        _c("h2", { staticClass: "card-subtitle text-center" }, [
+        _c("h3", { staticClass: "card-subtitle text-center" }, [
           _vm._v(_vm._s(_vm.client.name))
         ]),
         _vm._v(" "),
@@ -38334,7 +38334,16 @@ var render = function() {
         _vm._v(" "),
         _c("h5", { staticClass: "card-text" }, [
           _vm._v("Teléfono/Celular: " + _vm._s(_vm.client.fono))
-        ])
+        ]),
+        _vm._v(" "),
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-success",
+            attrs: { href: "/clientes/" + _vm.client.id }
+          },
+          [_vm._v("Editar Cliente")]
+        )
       ])
     ])
   ])

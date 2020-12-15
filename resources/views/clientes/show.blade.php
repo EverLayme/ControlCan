@@ -14,7 +14,7 @@
 
           <div class="card-actions bg-secondary text-center">
             <br>
-            <button type="button" name="button" class="btn btn-success"><a href="/clientes/{{$client->id}}/edit">Editar Cliente <b>{{$client->name}}</b></a></button>
+            <a class="btn btn-success" href="/clientes/{{$client->id}}/edit"><b>Actualizar Datos Cliente</b></a>
           <br><br>
               @include('clientes.delete')
               <br>
