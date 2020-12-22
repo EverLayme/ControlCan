@@ -1,10 +1,10 @@
 <template>
 <nav class="options navbar navbar-expand-md navbar-light">
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="dropdown-toggle">Menu</span>
+    <button type="button" class="sel navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class=" dropdown-toggle">Menu</span>
     </button>
 
-    <div class="select collapse navbar-collapse justify-content-left" id="navbarCollapse">
+    <div class="select bg-info collapse navbar-collapse justify-content-left" id="navbarCollapse">
         <div class="navbar-nav">
             <a href="#" class="nav-item nav-link active">INICIO</a>
             <div class="nav-item dropdown">
@@ -12,7 +12,7 @@
                 <div class="dropdown-menu text-center">
                       <a href="/clientes/create" class="dropdown-item nav-link">Adición Cliente</a>
                       <div class="dropdown-divider"></div>
-                      <a href="/clientes/" class="dropdown-item nav-link">Actualizar Cliente</a>
+                      <a href="/registro/" class="dropdown-item nav-link">Actualizar Cliente</a>
                       <div class="dropdown-divider"></div>
                       <a href="/clientes/" class="dropdown-item nav-link">Eliminar Cliente</a>
                 </div>
@@ -30,9 +30,8 @@ export default {
 }
 </script>
 <style scoped>
-.select{
-    background-color: rgba(26, 157, 167, 0.8);
-    box-shadow: 0px 1px 4px rgba(0,0,0,0.5);
+.sel, .select{
+box-shadow: 0px 1px 4px rgba(0,0,0,0.5);
     padding-left: 5%;
 }
 .options{

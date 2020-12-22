@@ -23,6 +23,8 @@ Vue.component('mynavbar-component', require('./components/menu/MynavbarComponent
 Vue.component('clients-component', require('./components/clients/ClientsComponent.vue').default);
 Vue.component('client-card-component', require('./components/clients/ClientCardComponent.vue').default);
 Vue.component('material-transition-group', require('./components/animations/MaterialCollectionComponent.vue').default);
+Vue.component('container-component', require('./components/container/ContainerComponent.vue').default);
+Vue.component('loader-component', require('./components/container/LoaderComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
